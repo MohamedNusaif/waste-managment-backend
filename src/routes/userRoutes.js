@@ -38,10 +38,13 @@ router.post("/", createUser);
 
 /**
  * @swagger
- * /api/users:
+ * /api/users/:
  *   get:
- *     summary: Get all users
+ *     summary: Test endpoint
  *     tags: [Users]
+ *     responses:
+ *       200:
+ *         description: Success
  */
 router.get("/", getUsers);
 
@@ -51,6 +54,18 @@ router.get("/", getUsers);
  *   get:
  *     summary: Get user by ID
  *     tags: [Users]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         description: User ID
+ *     responses:
+ *       200:
+ *         description: User found
+ *       404:
+ *         description: User not found
  */
 router.get("/:id", getUserById);
 
@@ -60,6 +75,13 @@ router.get("/:id", getUserById);
  *   put:
  *     summary: Update user
  *     tags: [Users]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *           example: 1
  */
 router.put("/:id", updateUser);
 
@@ -69,6 +91,13 @@ router.put("/:id", updateUser);
  *   delete:
  *     summary: Delete user
  *     tags: [Users]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *           example: 1
  */
 router.delete("/:id", deleteUser);
 

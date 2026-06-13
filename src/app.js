@@ -4,6 +4,7 @@ const cors = require("cors");
 const authRoutes = require("./routes/authRoutes");
 const donorRoutes = require("./routes/donorRoutes");
 const requestRoutes = require("./routes/requestRoutes");
+const dashboardRoutes = require("./routes/dashboardRoutes");
 const swaggerSpec = require("./config/swagger");
 const swaggerUi = require("swagger-ui-express");
 
@@ -22,5 +23,5 @@ app.use("/api/auth", authRoutes);
 app.use("/api/donations", donorRoutes);
 app.use("/api/requests", requestRoutes);
 app.use("/api/users", userRoutes);
-
+app.use("/api/dashboard", dashboardRoutes);
 module.exports = app;
